@@ -4,5 +4,13 @@
   "main": "./angular.js",
   "ignore": [],
   "dependencies": {
-  }
+  	"BOWER-PACKAGE": "*"
+  },
+    "overrides": {
+        "BOWER-PACKAGE": {
+            "main": {
+                "development": "angular.js",
+            }
+        }
+    }
 }

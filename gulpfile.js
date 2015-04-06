@@ -10,8 +10,8 @@ var paths = {
 	tempIndex: 'temp/index.html',
 
 	index: 'app/index.html',
-	appSrc: ['app/**/*.js', '!app/index.html'],
-	bowerSrc: 'bower_components/**/*'
+	appSrc: ['app/**/*', '!app/index.html', '!app/_bower_components/**/*'],
+	bowerSrc: '_bower_components/**/*'
 }
 
 gulp.task('default', ['watch']);
@@ -35,7 +35,13 @@ gulp.task('serve', ['copyAll'], function(){
 });
 
 gulp.task('copyAll', function(){
-	var tempVendors = gulp.src(mainBowerFiles()).pipe(gulp.dest(paths.tempVendor));
+	var tempVendors = gulp.src(mainBowerFiles({
+		    paths: {
+		        bowerDirectory: 'app/_bower_components',
+		        // bowerrc: 'path/for/.bowerrc',
+		        // bowerJson: 'path/for/bower.json'
+		    }
+	})).pipe(gulp.dest(paths.tempVendor));
 	var appFiles = gulp.src(paths.appSrc).pipe(gulp.dest(paths.temp));
 	
 	return gulp.src(paths.index)
