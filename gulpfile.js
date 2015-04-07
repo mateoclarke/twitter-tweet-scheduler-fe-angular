@@ -29,7 +29,7 @@ gulp.task('serve', ['copyAll'], function(){
 			livereload: true,
 			proxies: [{
 				source: '/api',
-				target: 'http:localhost:1337'
+				target: 'http://localhost:1337'
 		}]
 	}));
 });
