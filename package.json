@@ -15,6 +15,8 @@
     "main-bower-files": "^2.6.2"
   },
   "dependencies": {
-    "gulp-webserver": "^0.9.0"
+    "gulp-webserver": "^0.9.0",
+    "request": "^2.55.0",
+    "twit": "^1.1.20"
   }
 }
