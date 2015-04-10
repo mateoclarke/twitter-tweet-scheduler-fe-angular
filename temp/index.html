@@ -31,7 +31,7 @@
 						</span>
 					</p>
 					<timepicker ng-model="time"></timepicker>	
-					<button class="btn btn-default pull-right" ng-click="tweet()">Tweet</button>
+					<button class="btn btn-default pull-right" ng-disabled="!date" ng-click="tweet()">Tweet</button>
 				</div>
 			</div>
 		</div>
