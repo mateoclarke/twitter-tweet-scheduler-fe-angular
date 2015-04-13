@@ -1,4 +1,9 @@
-angular.module('app').controller('Post', function($scope, $http){
+angular.module('app').controller('Post', function($scope, $http, $location){
+
+	var id = $location.search().id;
+
+	console.log(id);
+
 	$scope.tweet = function(){
 
 		var datetime = new Date(
