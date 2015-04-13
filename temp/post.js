@@ -2,26 +2,6 @@
 
 		var id = $location.search().id;
 
-		if(id) getPost();
-
-		$scope.tweet = function(){
-
-			var datetime = new Date(
-				$scope.date.getFullYear()
-				, $scope.date.getMonth()
-				, $scope.date.getDate()
-				, $scope.time.getHours()
-				, $scope.time.getMinutes()
-			)
-
-			$http.post('/api/post/tweet', { 
-				message: $scope.message,
-				datetime: datetime
-			}).then(function(){
-
-			});
-		}
-
 		$scope.time = new Date();
 		
 		$scope.minDate = new Date();
@@ -44,6 +24,51 @@
 
 				$scope.time = datetime;
 			})
+		}
+
+		if (isEditingPost()) {
+			getPost();
+			$scope.save = editPost;
+		} else {
+			$scope.save = newPost;
+		}
+
+		function newPost() {
+			var datetime = new Date(
+				$scope.date.getFullYear()
+				, $scope.date.getMonth()
+				, $scope.date.getDate()
+				, $scope.time.getHours()
+				, $scope.time.getMinutes()
+			)
+
+			$http.post('/api/post/tweet', { 
+				message: $scope.message,
+				datetime: datetime
+			}).then(function(){
+
+			});
+		}
+
+		function editPost(){
+			var datetime = new Date(
+				$scope.date.getFullYear()
+				, $scope.date.getMonth()
+				, $scope.date.getDate()
+				, $scope.time.getHours()
+				, $scope.time.getMinutes()
+			)
+
+			$http.post('/api/post/update/' + id, { 
+				message: $scope.message,
+				datetime: datetime
+			}).then(function(){
+
+			});
+		}
+
+		function isEditingPost() {
+			return id;
 		}
 
 
