@@ -1,4 +1,4 @@
-angular.module('app').controller('Scheduler', function($scope, $http){
+angular.module('app').controller('Post', function($scope, $http){
 	$scope.tweet = function(){
 
 		var datetime = new Date(
@@ -29,5 +29,6 @@ angular.module('app').controller('Scheduler', function($scope, $http){
 
 		$scope.opened = !$scope.opened;
 	}
+
 
 })

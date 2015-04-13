@@ -9,6 +9,10 @@ angular.module('app', ['satellizer', 'ui.bootstrap', 'ui.router'])
 			url: '/',
 			templateUrl: 'myposts.html',
 			controller: 'MyPosts'
+		}).state('post', {
+			url: '/post',
+			templateUrl: 'post.html',
+			controller: 'Post'
 		})
-		
+
 	});
