@@ -1,4 +1,4 @@
-angular.module('app', ['satellizer', 'ui.bootstrap', 'ui.router', 'toastr'])
+angular.module('app', ['satellizer', 'ui.bootstrap', 'ui.router', 'toastr', 'ngAnimate'])
 	.config(function ($authProvider, $stateProvider, toastrConfig) {
 
 		$authProvider.twitter({
