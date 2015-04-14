@@ -18,10 +18,10 @@
 		function getPost(){
 			$http.get('/api/post/' + id).then(function(post){
 				$scope.message = post.data.message;
-				$scope.date = post.data.datetime;
 
 				var datetime = new Date(post.data.datetime);
 
+				$scope.date = datetime;
 				$scope.time = datetime;
 			})
 		}
