@@ -9,5 +9,6 @@
 			</span>
 		</p>
 		<timepicker ng-model="time"></timepicker>	
+		<button class="btn btn-danger pull-right" ng-show="isEditing" ng-click="delete()">Delete</button>
 		<button class="btn btn-default pull-right" ng-disabled="!date" ng-click="save()">Save</button>
 	</div>

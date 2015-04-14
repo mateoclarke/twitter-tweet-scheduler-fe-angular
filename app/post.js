@@ -15,6 +15,8 @@
 			$scope.opened = !$scope.opened;
 		}
 
+		$scope.delete = deletePost;
+
 		function getPost(){
 			$http.get('/api/post/' + id).then(function(post){
 				$scope.message = post.data.message;
@@ -27,6 +29,7 @@
 		}
 
 		if (isEditingPost()) {
+			$scope.isEditing = true;
 			getPost();
 			$scope.save = editPost;
 		} else {
@@ -63,7 +66,13 @@
 				message: $scope.message,
 				datetime: datetime
 			}).then(function(){
+				toastr.success("post was edited successfully");
+			});
+		}
 
+		function deletePost(){
+			$http.post('/api/post/destroy/' + id).then(function(){
+				toastr.info("post was deleted");
 			});
 		}
 
